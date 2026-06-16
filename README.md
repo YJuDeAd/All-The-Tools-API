@@ -1,4 +1,4 @@
-# 🛠️ All The Tools - API
+# All The Tools - API
 
 A REST API built from scratch to serve as a utility hub. This project is designed to automate everyday file processing tasks, data conversions, and media handling, integrating seamlessly with tools like **n8n** and local **llama models**.
 
@@ -54,7 +54,7 @@ Below is the current list of available endpoints.
 | `POST` | `api/v1/pdf2txt` | Extracts raw plain text from a PDF. |
 | `POST` | `api/v1/txt2pdf` | Converts a plain text file into a formatted PDF. |
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Local Development
 
@@ -85,6 +85,6 @@ python3 server.py
 
 5. **View Documentation:** Open your browser and navigate to `http://127.0.0.1:5000/docs` to see the auto-generated Swagger UI.
 
-## 🤝 Contributing
+## Contributing
 
 Since this is a personal learning project with strict rules on handwritten code, direct code contributions are currently closed. However, feature suggestions, architectural feedback, and bug reports via Issues are highly appreciated!
