@@ -1,0 +1,88 @@
+# =========================
+# Python / FastAPI
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =========================
+# Environments
+# =========================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# =========================
+# Testing & Linting
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+*.log
+.mypy_cache/
+.ruff_cache/
+testFiles/
+test.py
+
+# =========================
+# App-Specific / Local Data
+# =========================
+uploads/
+temp/
+temp_media/
+processed_files/
+filePrcoessing/
+data/
+*.sqlite3
+*.db
+
+# =========================
+# OS Generated Files
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+.directory
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# TEMP
+# =========================
+models/
