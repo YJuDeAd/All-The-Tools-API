@@ -56,7 +56,7 @@ uploads/
 temp/
 temp_media/
 processed_files/
-filePrcoessing/
+fileProcessing/
 data/
 *.sqlite3
 *.db
