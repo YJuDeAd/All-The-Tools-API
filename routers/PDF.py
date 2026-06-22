@@ -4,14 +4,16 @@ import shutil
 import json
 from fastapi import APIRouter, HTTPException, UploadFile, Form, File
 from fastapi.responses import JSONResponse, FileResponse
-from typing import Optional
+from typing import Optional, Annotated
+from models.schemas import CustomUploadFile
 from services.PDF import (
     pdf_to_image, 
     pdf_compression, 
     pdf_delete_pages, 
     pdf_to_md, 
     pdf_to_text,
-    text_to_pdf
+    text_to_pdf,
+    image_to_pdf
 )
 
 router = APIRouter(tags=["PDF"])
@@ -375,3 +377,48 @@ async def convert_txt_to_pdf(
     finally:
         if os.path.exists(temp_path):
             os.remove(temp_path)
+
+
+# Images -> PDF
+@router.post("/img2pdf")
+async def convert_img_to_pdf(
+    files: Annotated[list[CustomUploadFile], File(description="upload images.")]
+):
+    ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/jpg"]
+
+    for file in files:
+        if file.content_type not in ALLOWED_IMAGE_TYPES:
+            raise HTTPException(
+                status_code=415,
+                detail=f"File '{file.filename}' is not a valid image. Only JPG and PNG are allowed."
+            )
+
+    temp_paths = []
+
+    for file in files:
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            shutil.copyfileobj(file.file, temp_file)
+            temp_paths.append(temp_file.name)
+
+    try:
+        image_to_pdf(
+            pdf_name="output",
+            image_paths=temp_paths
+        )
+        return FileResponse(
+            path=f"./fileProcessing/output.pdf",
+            media_type="application/pdf",
+            filename=f"output.pdf"
+        )
+    except Exception as e: 
+        return JSONResponse(
+            status_code=500,
+            content={
+                "error": "failed to convert images.",
+                "reason": str(e)
+            }
+        )
+    finally:
+        for temp_path in temp_paths:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)

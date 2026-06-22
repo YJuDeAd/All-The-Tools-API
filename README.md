@@ -21,7 +21,7 @@ A REST API built from scratch to serve as a utility hub. This project is designe
 - [x] PDF -> Markdown (MD)
 - [x] PDF -> Plain Text
 - [x] Text -> PDF
-- [ ] Images -> PDF
+- [x] Images -> PDF
 
 ### Data & Config Conversion
 - [ ] JSON <-> YAML
@@ -53,6 +53,7 @@ Below is the current list of available endpoints.
 | `POST` | `api/v1/pdf2md` | Extracts text and structure from a PDF to Markdown. |
 | `POST` | `api/v1/pdf2txt` | Extracts raw plain text from a PDF. |
 | `POST` | `api/v1/txt2pdf` | Converts a plain text file into a formatted PDF. |
+| `POST` | `api/v1/img2pdf` | Converts any png, jpeg, jpg file into a PDF. |
 
 ## Getting Started
 
