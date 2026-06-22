@@ -355,9 +355,9 @@ async def convert_txt_to_pdf(
         file_name = f"{file.filename[:-4]}"
 
     try:
-        pdf_to_text(
-            pdf_path=temp_path,
-            pdf_name=file_name
+        text_to_pdf(
+            txt_path=temp_path,
+            txt_name=file_name
         )
         return FileResponse(
             path=f"./fileProcessing/{file_name}.pdf",
