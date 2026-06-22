@@ -36,8 +36,8 @@ A REST API built from scratch to serve as a utility hub. This project is designe
 - [ ] Video format converter (Formats TBD)
 - [ ] Audio format converter (Formats TBD)
 - [ ] Video -> Audio extraction
-- [ ] YouTube -> Audio
-- [ ] YouTube -> Video
+- [x] YouTube -> Audio
+- [x] YouTube -> Video
 
 ## Current Endpoints
 
@@ -54,6 +54,8 @@ Below is the current list of available endpoints.
 | `POST` | `api/v1/pdf2txt` | Extracts raw plain text from a PDF. |
 | `POST` | `api/v1/txt2pdf` | Converts a plain text file into a formatted PDF. |
 | `POST` | `api/v1/img2pdf` | Converts any png, jpeg, jpg file into a PDF. |
+| `POST` | `api/v1/yt2mp4` | Converts any youtube url to mp4 file. |
+| `POST` | `api/v1/yt2m4a` | Converts any youtube url to m4a file. |
 
 ## Getting Started
 

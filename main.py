@@ -3,7 +3,7 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from routers import PDF
+from routers import PDF, YT
 
 os.makedirs("fileProcessing", exist_ok=True)
 
@@ -21,3 +21,4 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     )
 
 app.include_router(PDF.router, prefix="/api/v1")
+app.include_router(YT.router, prefix="/api/v1")
